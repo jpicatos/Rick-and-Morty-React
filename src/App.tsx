@@ -11,10 +11,10 @@ const App = () => {
   return (
     <div className={style.App}>
       <Router>
-        <div>
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/characters" component={Characters} />
-        </div>
+        </Switch>
       </Router>
     </div>
   );
