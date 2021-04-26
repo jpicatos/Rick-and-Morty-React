@@ -1,0 +1,25 @@
+@import "../../common.scss";
+@import "../../variables.scss";
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: rem(30px);
+    padding-bottom: rem(10px);
+    font-size: rem(17px);
+    a {
+        margin: 0 rem(10px);
+        color: $dark-color;
+        text-decoration: none;
+        &:hover {
+            opacity: 0.8;
+        }
+        &.disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+    }
+    span {
+        margin: 0 rem(15px);
+    }
+}

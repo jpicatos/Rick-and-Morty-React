@@ -1,0 +1,11 @@
+@import "../../common.scss";
+
+.paginator {
+    padding-bottom: rem(30px);
+    .characters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
