@@ -10,7 +10,7 @@ import Characters from "./pages/Characters";
 const App = () => {
   return (
     <div className={style.App}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/characters" component={Characters} />

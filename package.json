@@ -1,4 +1,5 @@
 {
+  "homepage":"https://jpicatos.github.io/test-frontend-hv",
   "name": "test-frontend-hv",
   "version": "0.1.0",
   "private": true,
@@ -32,6 +33,7 @@
     "eject": "react-scripts eject",
     "test": "jest",
     "test:watch": "jest --watch",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -61,6 +63,5 @@
     "setupFiles": [
       "./src/setupJest.ts"
     ]
-  },
-  "homepage":"https://jpicatos.github.io/test-frontend-hv"
+  }
 }
