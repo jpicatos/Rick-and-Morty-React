@@ -1,5 +1,6 @@
 import React from "react";
 import { Character } from "../../models/character";
+import CustomImage from "../CustomImage";
 import style from "./CharacterComponent.module.scss";
 
 const CharacterComponent: React.FC<{ character: Character }> = ({
@@ -9,7 +10,7 @@ const CharacterComponent: React.FC<{ character: Character }> = ({
   return (
     <div className={style.wrapper} onClick={() => console.log(character)}>
       <div className={style.header}>
-        <img src={character.image} alt={character.name} />
+        <CustomImage img={character.image} altText={character.name} className={style.headerImg}/>
         <div className={`${style["personal-info"]} ${style.ellipsis}`}>
           <span className={`${style.name} ${style.ellipsis}`}>
             {character.name}
@@ -22,7 +23,7 @@ const CharacterComponent: React.FC<{ character: Character }> = ({
           </a>
         </div>
       </div>
-      <img src={character.image} alt={character.name} />
+      <CustomImage img={character.image} altText={character.name} className={style.mainImg}/>
       <div className={style.tags}>
         {tags.map((tag, index) => {
           const text = character[tag as keyof Character];
