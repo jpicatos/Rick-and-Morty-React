@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { characters } from "../../services/rickAndMorty";
-
 import styles from "./HeaderMenu.module.scss";
+
 
 const HeaderMenu: React.FC<{
   activePage?: string;
-  lastCharactersPage?: number;
-}> = ({ activePage, lastCharactersPage }) => {
+}> = ({ activePage }) => {
+  const [lastCharactersPage, setLastCharactersPage] = useState<number>(1);
+
+  useEffect(() => {
+    setLastCharactersPage(characters.getLocal()?.pageNumber || 1);
+  }, [activePage])
+
   return (
     <header className={styles.menu} data-testid="menu">
-      <Link to="/" className={!activePage ? "active" : ""}>
+      <Link to="/" className={!activePage ? "disabled" : ""}>
         Home
       </Link>
       <Link
@@ -19,7 +24,7 @@ const HeaderMenu: React.FC<{
             ? `/characters?page=${lastCharactersPage}`
             : "/characters"
         }
-        className={activePage === "characters" ? "active" : ""}
+        className={activePage === "characters" ? "disabled" : ""}
       >
         Characters
       </Link>

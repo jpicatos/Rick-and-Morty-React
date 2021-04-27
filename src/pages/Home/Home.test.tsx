@@ -1,8 +1,7 @@
-import React from "react";
-import { render, fireEvent, waitForElement } from "@testing-library/react";
 import { screen } from "@testing-library/dom";
-import Home from "./Home";
+import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
+import Home from "./Home";
 
 describe("<Home />", () => {
   test("should display the menu", async () => {
@@ -22,7 +21,7 @@ describe("<Home />", () => {
       </BrowserRouter>
     );
     const home = screen.getByText("Home");
-    expect(home).toHaveClass("active");
+    expect(home).toHaveClass("disabled");
   });
 
   test("should display the react icon", async () => {

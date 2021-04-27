@@ -1,11 +1,7 @@
-import style from"./App.module.scss";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import style from "./App.module.scss";
 import Characters from "./pages/Characters";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
