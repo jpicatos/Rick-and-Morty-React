@@ -14,10 +14,10 @@ const lastCharactersKey: string = "lastCharacters";
 const getLocalCharacters = () =>
   JSON.parse(localStorage.getItem(lastCharactersKey) || "{}");
 
-const setLocalCharacters = (characters: AllCharacters, page: number) =>
+const setLocalCharacters = (response: AllCharacters, page: number) =>
   localStorage.setItem(
     lastCharactersKey,
-    JSON.stringify({ characters, ...{ pageNumber: page } })
+    JSON.stringify({ response, ...{ pageNumber: page } })
   );
 
 const getAllCharacters = (page: number): Promise<AllCharacters> => {

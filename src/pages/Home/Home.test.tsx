@@ -22,7 +22,7 @@ describe("<Home />", () => {
       </BrowserRouter>
     );
     const home = screen.getByText("Home");
-    expect(home).toHaveClass("active");
+    expect(home).toHaveClass("disabled");
   });
 
   test("should display the react icon", async () => {

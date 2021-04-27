@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import style from "./PaginationManager.module.scss";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
