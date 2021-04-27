@@ -4,7 +4,7 @@ import style from "./CustomImage.module.scss";
 const CustomImage: React.FC<{
   img: string;
   altText: string;
-  className: string;
+  className?: string;
 }> = ({ img, altText, className = "" }) => {
   const [loadErrorClass, setLoadErrorClass] = useState<string>("");
   const errorHandler = (event: SyntheticEvent<HTMLDivElement>) => {
