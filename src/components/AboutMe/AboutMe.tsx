@@ -32,7 +32,7 @@ function AboutMe() {
             href="https://github.com/jpicatos/test-frontend-hv"
             rel="noreferrer"
           >
-            This proyect code
+            This projet's code
           </a>
         </span>
       </div>
