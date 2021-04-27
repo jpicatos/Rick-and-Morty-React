@@ -10,7 +10,11 @@ const CharacterComponent: React.FC<{ character: Character }> = ({
   return (
     <div className={style.wrapper} onClick={() => console.log(character)}>
       <div className={style.header}>
-        <CustomImage img={character.image} altText={character.name} className={style.headerImg}/>
+        <CustomImage
+          img={character.image}
+          altText={character.name}
+          className={style.headerImg}
+        />
         <div className={`${style["personal-info"]} ${style.ellipsis}`}>
           <span className={`${style.name} ${style.ellipsis}`}>
             {character.name}
@@ -23,7 +27,11 @@ const CharacterComponent: React.FC<{ character: Character }> = ({
           </a>
         </div>
       </div>
-      <CustomImage img={character.image} altText={character.name} className={style.mainImg}/>
+      <CustomImage
+        img={character.image}
+        altText={character.name}
+        className={style.mainImg}
+      />
       <div className={style.tags}>
         {tags.map((tag, index) => {
           const text = character[tag as keyof Character];

@@ -1,16 +1,16 @@
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   AllCharacters,
   Character,
-  CharactersInfo,
+  CharactersInfo
 } from "../../models/character";
-import { useLocation } from "react-router-dom";
 import { characters as charactersService } from "../../services/rickAndMorty";
 import CharacterComponent from "../Character";
 import PaginationManager from "../PaginationManager";
 import style from "./PaginatedCharacterGrid.module.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 

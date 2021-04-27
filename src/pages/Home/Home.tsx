@@ -9,7 +9,7 @@ const Home = () => {
     <React.Fragment>
       <HeaderMenu />
       <div className={style.content}>
-        <AboutMe/>
+        <AboutMe />
         <ReactAnimatedLogo />
       </div>
     </React.Fragment>

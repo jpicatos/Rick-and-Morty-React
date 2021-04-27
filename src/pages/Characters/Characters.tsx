@@ -5,7 +5,7 @@ import PaginatedCharacterGrid from "../../components/PaginatedCharacterGrid";
 const Characters = () => {
   return (
     <React.Fragment>
-      <HeaderMenu activePage='characters'/>
+      <HeaderMenu activePage="characters" />
       <PaginatedCharacterGrid />
     </React.Fragment>
   );

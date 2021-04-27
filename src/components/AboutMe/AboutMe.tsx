@@ -12,12 +12,15 @@ function AboutMe() {
         className={style.profileImg}
       ></CustomImage>
       <div>
-        <span className={`${style.extLink} ${style.title}`}>Javier Picatoste Zangróniz</span>
+        <span className={`${style.extLink} ${style.title}`}>
+          Javier Picatoste Zangróniz
+        </span>
         <span className={style.extLink}>
           <FontAwesomeIcon icon={faLinkedin} />
           <a
             target="_blank"
             href="https://www.linkedin.com/in/javier-picatoste/"
+            rel="noreferrer"
           >
             Linkedin
           </a>
@@ -27,6 +30,7 @@ function AboutMe() {
           <a
             target="_blank"
             href="https://github.com/jpicatos/test-frontend-hv"
+            rel="noreferrer"
           >
             This proyect code
           </a>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { characters } from "../../services/rickAndMorty";
-
 import styles from "./HeaderMenu.module.scss";
+
 
 const HeaderMenu: React.FC<{
   activePage?: string;

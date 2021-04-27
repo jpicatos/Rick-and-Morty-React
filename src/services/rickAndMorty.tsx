@@ -26,18 +26,18 @@ const getAllCharacters = (page: number): Promise<AllCharacters> => {
     return new Promise<AllCharacters>((resolve, reject) => resolve(response));
   } else {
     return fetch(`${characterEndpoint}?page=${page}`)
-        .then((res) => res.json())
-        .then((res) => {
-            setLocalCharacters(res, page);
-            return res
-        });
+      .then((res) => res.json())
+      .then((res) => {
+        setLocalCharacters(res, page);
+        return res;
+      });
   }
 };
 
 const getCharacters = (ids: Array<number>): Promise<Character> =>
   fetch(`${characterEndpoint}/${ids}`).then((res) => res.json());
 
-export const characters: Service = {
+export const characters: Service = { // Ready to add all other object types (Location, Episode...)
   endpoint: characterEndpoint,
   getAll: getAllCharacters,
   getSome: getCharacters,
