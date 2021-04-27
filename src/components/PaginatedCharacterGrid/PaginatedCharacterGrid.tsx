@@ -4,62 +4,87 @@ import {
   Character,
   CharactersInfo,
 } from "../../models/character";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { characters as charactersService } from "../../services/rickAndMorty";
 import CharacterComponent from "../Character";
 import PaginationManager from "../PaginationManager";
 import style from "./PaginatedCharacterGrid.module.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
-const PaginatedCharacterGrid: React.FC<{ setLastPage: Function }> = ({
-  setLastPage,
-}) => {
+const PaginatedCharacterGrid = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [charactersInfo, setCharactersInfo] = useState<CharactersInfo>(
     {} as CharactersInfo
   );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const query = useQuery();
   let pageNumber: number = parseInt(`${query.get("page")}`) || 1;
 
   useEffect(() => {
+    setLoading(true);
+    setError("");
     const fetchCharacters = async () => {
-      const response: AllCharacters = await charactersService.getAll(
-        pageNumber
-      );
-      setCharacters(response.results);
-      setCharactersInfo(response.info);
-      setLastPage(pageNumber);
+      try {
+        const response: AllCharacters = await charactersService.getAll(
+          pageNumber
+        );
+        setLoading(false);
+        setCharacters(response.results);
+        setCharactersInfo(response.info);
+      } catch (err) {
+        if (err) {
+          setError(`${err}`);
+        } else {
+          setError("Something has gone wrong :(");
+        }
+      }
     };
     fetchCharacters();
   }, [pageNumber]); // With pageNumber as param, component is re-fetched every time URL changes, this allow user to navigate with history back in browser.
 
   return (
-    <div className={style.paginator} data-testid="paginated-grid">
-      <PaginationManager
-        endpoint="/characters"
-        pageNumber={pageNumber}
-        prev={charactersInfo.prev}
-        next={charactersInfo.next}
-        lastPage={charactersInfo.pages}
-      />
-      <div className={style.characters}>
-        {characters.map((character) => (
-          <CharacterComponent
-            character={character}
-            key={character.id}
-            data-testid={`character-${character.id}`}
+    <React.Fragment>
+      {error ? (
+        <div className={`${style.message} ${style.error}`}>
+          <FontAwesomeIcon icon={faExclamationTriangle} />
+          <span>{error}</span>
+        </div>
+      ) : (
+        <div className={style.paginator} data-testid="paginated-grid">
+          <PaginationManager
+            endpoint="/characters"
+            pageNumber={pageNumber}
+            prev={charactersInfo.prev}
+            next={charactersInfo.next}
+            lastPage={charactersInfo.pages}
           />
-        ))}
-      </div>
-      <PaginationManager
-        endpoint="/characters"
-        pageNumber={pageNumber}
-        prev={charactersInfo.prev}
-        next={charactersInfo.next}
-        lastPage={charactersInfo.pages}
-      />
-    </div>
+          <div className={style.characters}>
+            {loading ? (
+              <div className={style.message}>Loading...</div>
+            ) : (
+              characters.map((character) => (
+                <CharacterComponent
+                  character={character}
+                  key={character.id}
+                  data-testid={`character-${character.id}`}
+                />
+              ))
+            )}
+          </div>
+          <PaginationManager
+            endpoint="/characters"
+            pageNumber={pageNumber}
+            prev={charactersInfo.prev}
+            next={charactersInfo.next}
+            lastPage={charactersInfo.pages}
+          />
+        </div>
+      )}
+    </React.Fragment>
   );
 };
 
