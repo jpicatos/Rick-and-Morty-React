@@ -3,6 +3,7 @@ import style from "./App.module.scss";
 import CharacterDetail from "./pages/CharacterDetail";
 import Characters from "./pages/Characters";
 import Home from "./pages/Home";
+import Locations from "./pages/Locations";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route exact path="/" component={Home} />
           <Route exact path="/characters" component={Characters} />
           <Route exact path="/characters/:id" component={CharacterDetail} />
+          <Route exact path="/locations" component={Locations} />
         </Switch>
       </Router>
     </div>
