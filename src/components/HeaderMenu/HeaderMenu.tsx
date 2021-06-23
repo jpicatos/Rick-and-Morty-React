@@ -13,9 +13,12 @@ const HeaderMenu: React.FC<{
     setLastCharactersPage(characters.getLocal()?.pageNumber || 1);
   }, [activePage])
 
+  const disabledClass = (page: string) => {
+    return activePage === page ? "disabled" : "";
+  }
   return (
     <header className={styles.menu} data-testid="menu">
-      <Link to="/" className={!activePage ? "disabled" : ""}>
+      <Link to="/" className={disabledClass("home")}>
         Home
       </Link>
       <Link
@@ -24,7 +27,7 @@ const HeaderMenu: React.FC<{
             ? `/characters?page=${lastCharactersPage}`
             : "/characters"
         }
-        className={activePage === "characters" ? "disabled" : ""}
+        className={disabledClass("characters")}
       >
         Characters
       </Link>

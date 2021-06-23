@@ -7,7 +7,7 @@ import style from "./Home.module.scss";
 const Home = () => {
   return (
     <React.Fragment>
-      <HeaderMenu />
+      <HeaderMenu activePage="home"/>
       <div className={style.content}>
         <AboutMe />
         <ReactAnimatedLogo />

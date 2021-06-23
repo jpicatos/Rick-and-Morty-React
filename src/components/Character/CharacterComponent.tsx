@@ -1,14 +1,20 @@
 import React from "react";
+import { useHistory } from "react-router";
 import { Character } from "../../models/character";
 import CustomImage from "../CustomImage";
 import style from "./CharacterComponent.module.scss";
 
 const CharacterComponent: React.FC<{ character: Character }> = ({
-  character,
+  character
 }) => {
   const tags: Array<string> = ["status", "species", "type", "gender"];
+  let history = useHistory();
+  const navigateToDetail = () => {
+    history.push(`characters/${character.id}`);
+  }
+
   return (
-    <div className={style.wrapper} onClick={() => console.log(character)}>
+    <div className={style.wrapper} onClick={navigateToDetail}>
       <div className={style.header}>
         <CustomImage
           img={character.image}
@@ -33,7 +39,7 @@ const CharacterComponent: React.FC<{ character: Character }> = ({
         className={style.mainImg}
       />
       <div className={style.tags}>
-        {tags.map((tag, index) => {
+        {tags.map(tag => {
           const text = character[tag as keyof Character];
           return text !== "unknown" && text !== "" ? (
             <span
