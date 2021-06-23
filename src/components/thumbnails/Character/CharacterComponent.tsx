@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { Character } from "../../models/character";
-import CustomImage from "../CustomImage";
+import { Character } from "../../../models/character";
+import CustomImage from "../../CustomImage";
 import style from "./CharacterComponent.module.scss";
 
 const CharacterComponent: React.FC<{ character: Character }> = ({

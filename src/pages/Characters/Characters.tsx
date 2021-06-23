@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderMenu from "../../components/HeaderMenu";
-import PaginatedCharacterGrid from "../../components/PaginatedCharacterGrid";
+import PaginatedCharacterGrid from "../../components/grids/PaginatedCharacterGrid";
 
 const Characters = () => {
   return (

@@ -5,19 +5,19 @@ import { useLocation } from "react-router-dom";
 import {
   AllCharacters,
   Character,
-  CharactersInfo
-} from "../../models/character";
-import { characters as charactersService } from "../../services/rickAndMorty";
-import CharacterComponent from "../Character";
-import PaginationManager from "../PaginationManager";
+  PaginationInfo
+} from "../../../models/character";
+import { characters as charactersService } from "../../../services/rickAndMorty";
+import CharacterComponent from "../../thumbnails/Character";
+import PaginationManager from "../../PaginationManager";
 import style from "./PaginatedCharacterGrid.module.scss";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 
 const PaginatedCharacterGrid = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [charactersInfo, setCharactersInfo] = useState<CharactersInfo>(
-    {} as CharactersInfo
+  const [charactersInfo, setPaginationInfo] = useState<PaginationInfo>(
+    {} as PaginationInfo
   );
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -34,7 +34,7 @@ const PaginatedCharacterGrid = () => {
         );
         setLoading(false);
         setCharacters(response.results);
-        setCharactersInfo(response.info);
+        setPaginationInfo(response.info);
       } catch (err) {
         if (err) {
           setError(`${err}`);

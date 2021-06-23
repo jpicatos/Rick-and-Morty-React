@@ -19,11 +19,11 @@ export type CharacterLocation = {
 };
 
 export type AllCharacters = {
-  info: CharactersInfo;
+  info: PaginationInfo;
   results: Array<Character>;
 };
 
-export type CharactersInfo = {
+export type PaginationInfo = {
   count: number;
   pages: number;
   next: string;
