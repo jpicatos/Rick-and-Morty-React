@@ -1,7 +1,7 @@
 import React from "react";
-import AboutMe from "../../components/AboutMe/AboutMe";
-import HeaderMenu from "../../components/HeaderMenu";
-import ReactAnimatedLogo from "../../components/ReactAnimatedLogo";
+import AboutMe from "../../components/utils/AboutMe";
+import HeaderMenu from "../../components/utils/HeaderMenu";
+import ReactAnimatedLogo from "../../components/utils/ReactAnimatedLogo";
 import style from "./Home.module.scss";
 
 const Home = () => {

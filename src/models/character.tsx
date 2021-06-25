@@ -1,3 +1,5 @@
+import { PaginationInfo } from "./commons";
+
 export type Character = {
   id: number;
   name: string;
@@ -21,11 +23,4 @@ export type CharacterLocation = {
 export type AllCharacters = {
   info: PaginationInfo;
   results: Array<Character>;
-};
-
-export type PaginationInfo = {
-  count: number;
-  pages: number;
-  next: string;
-  prev: string;
 };

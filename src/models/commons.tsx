@@ -1,3 +1,6 @@
+import { Character } from "./character";
+import { Location } from "./location";
+
 export type PaginationInfo = {
   count: number;
   pages: number;
@@ -12,3 +15,5 @@ export type Service = {
   getLocal: Function;
   setLocal: Function;
 };
+
+export type GridItem = Character | Location;

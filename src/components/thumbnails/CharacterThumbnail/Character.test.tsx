@@ -1,12 +1,12 @@
 import { render } from "@testing-library/react";
 import React from "react";
-import CharacterComponent from "./CharacterComponent";
+import CharacterThumbnail from "./CharacterThumbnail";
 import { character } from "./mock";
 
 describe("<Characters />", () => {
   test("should type tag should not be displayed if type is not defined", async () => {
     const { queryByTestId } = render(
-      <CharacterComponent character={character} />
+      <CharacterThumbnail character={character} />
     );
     const statusTag = queryByTestId(`${character.id}-tag-status`);
     const speciesTag = queryByTestId(`${character.id}-tag-species`);
@@ -22,7 +22,7 @@ describe("<Characters />", () => {
     character.status = "unknown";
     character.type = "Cyborg";
     const { queryByTestId } = render(
-      <CharacterComponent character={character} />
+      <CharacterThumbnail character={character} />
     );
     const statusTag = queryByTestId(`${character.id}-tag-status`);
     const speciesTag = queryByTestId(`${character.id}-tag-species`);
@@ -39,7 +39,7 @@ describe("<Characters />", () => {
     character.type = "Cyborg";
     character.status = "Alive";
     const { queryByTestId } = render(
-      <CharacterComponent character={character} />
+      <CharacterThumbnail character={character} />
     );
     const statusTag = queryByTestId(`${character.id}-tag-status`);
     const speciesTag = queryByTestId(`${character.id}-tag-species`);
@@ -57,7 +57,7 @@ describe("<Characters />", () => {
     character.status = "Alive";
     character.gender = "unknown";
     const { queryByTestId } = render(
-      <CharacterComponent character={character} />
+      <CharacterThumbnail character={character} />
     );
     const statusTag = queryByTestId(`${character.id}-tag-status`);
     const speciesTag = queryByTestId(`${character.id}-tag-species`);

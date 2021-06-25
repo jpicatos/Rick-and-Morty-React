@@ -1,4 +1,4 @@
-import logo from "../../logo.svg";
+import logo from "../../../logo.svg";
 import style from "./ReactAnimatedLogo.module.scss";
 
 const ReactAnimatedLogo = () => {
