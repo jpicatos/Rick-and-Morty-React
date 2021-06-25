@@ -1,4 +1,5 @@
 import { Character } from "./character";
+import { Episode } from "./episode";
 import { Location } from "./location";
 
 export type PaginationInfo = {
@@ -16,4 +17,4 @@ export type Service = {
   setLocal: Function;
 };
 
-export type GridItem = Character | Location;
+export type GridItem = Character | Location | Episode;
