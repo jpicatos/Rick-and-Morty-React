@@ -6,7 +6,7 @@ import HeaderMenu from "../../components/utils/HeaderMenu";
 import PaginatedGrid from "../../components/utils/PaginatedGrid";
 import { PaginationInfo } from "../../models/commons";
 import { AllLocations, Location } from "../../models/location";
-import { locations as locationsService } from "../../services/rickAndMorty";
+import { locations as locationsService } from "../../services/locations";
 
 
 const useQuery = () => new URLSearchParams(useLocation().search);

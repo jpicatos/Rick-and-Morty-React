@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Character as CharacterModel } from '../../../models/character';
-import { characters as charactersService } from "../../../services/rickAndMorty";
+import { characters as charactersService } from "../../../services/characters";
 
 const Character: React.FC<{ id: number }> = ({id}) => {
     const [characterInfo, setCharacterInfo] = useState<CharacterModel>()

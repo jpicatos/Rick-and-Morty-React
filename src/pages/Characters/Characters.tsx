@@ -5,7 +5,7 @@ import CharacterThumbnail from "../../components/thumbnails/CharacterThumbnail";
 import { useLocation } from "react-router";
 import { AllCharacters, Character } from "../../models/character";
 import { PaginationInfo } from "../../models/commons";
-import { characters as charactersService } from "../../services/rickAndMorty";
+import { characters as charactersService } from "../../services/characters";
 
 const useQuery = () => new URLSearchParams(useLocation().search);
 

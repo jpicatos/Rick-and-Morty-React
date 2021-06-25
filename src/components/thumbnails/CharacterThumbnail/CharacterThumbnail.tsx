@@ -2,19 +2,16 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Character } from "../../../models/character";
 import CustomImage from "../../utils/CustomImage";
+import ThumbnailWrapper from "../ThumbnailWrapper";
 import style from "./CharacterThumbnail.module.scss";
 
 const CharacterThumbnail: React.FC<{ item: Character }> = ({
   item
 }) => {
   const tags: Array<string> = ["status", "species", "type", "gender"];
-  let history = useHistory();
-  const navigateToDetail = () => {
-    history.push(`characters/${item.id}`);
-  }
 
   return (
-    <div className={style.wrapper} onClick={navigateToDetail}>
+    <ThumbnailWrapper base="characters" detailId={`${item.id}`}>
       <div className={style.header}>
         <CustomImage
           img={item.image}
@@ -52,7 +49,7 @@ const CharacterThumbnail: React.FC<{ item: Character }> = ({
       <span className={style.date}>
         CREATED {new Date(item.created).toLocaleDateString()}
       </span>
-    </div>
+    </ThumbnailWrapper>
   );
 };
 

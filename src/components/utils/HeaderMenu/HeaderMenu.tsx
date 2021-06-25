@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { characters, locations } from "../../../services/rickAndMorty";
+import { characters } from "../../../services/characters";
+import { locations } from "../../../services/locations";
 import styles from "./HeaderMenu.module.scss";
 
 const disabledClass = (activePage: string, page: string) => {
